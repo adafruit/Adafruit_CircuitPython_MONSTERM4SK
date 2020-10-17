@@ -34,38 +34,42 @@ This is easily achieved by downloading
 
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
+.. note:: This library will not be available on PyPI. Install documentation is included
+   as a standard element.
 
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
-   If the library is not planned for PyPI, remove the entire 'Installing from PyPI' section.
-
-On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/adafruit-circuitpython-monsterm4sk/>`_. To install for current user:
-
-.. code-block:: shell
-
-    pip3 install adafruit-circuitpython-monsterm4sk
-
-To install system-wide (this may be required in some cases):
-
-.. code-block:: shell
-
-    sudo pip3 install adafruit-circuitpython-monsterm4sk
-
-To install in a virtual environment in your current project:
-
-.. code-block:: shell
-
-    mkdir project-name && cd project-name
-    python3 -m venv .env
-    source .env/bin/activate
-    pip3 install adafruit-circuitpython-monsterm4sk
 
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the examples folder and be included in docs/examples.rst.
+.. code-block:: python
+    import board
+    import displayio
+    from adafruit_display_shapes.circle import Circle
+    import adafruit_monsterm4sk
+
+
+    # Account for slight screen difference if you want
+    LEFT_Y_OFFSET = 0  # 12 # my left screen is a tad higher
+
+    SCREEN_SIZE = 240
+
+    i2c_bus = board.I2C()
+
+    mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
+
+    left_group = displayio.Group(max_size=4)
+    mask.left_display.show(left_group)
+
+    right_group = displayio.Group(max_size=4)
+    mask.right_display.show(right_group)
+
+    right_circle = Circle(SCREEN_SIZE // 2, SCREEN_SIZE // 2, 40, fill=0x0000FF)
+    right_group.append(right_circle)
+
+    left_circle = Circle(SCREEN_SIZE // 2, SCREEN_SIZE // 2, 40, fill=0x00AA66)
+    left_group.append(left_circle)
+    while True:
+        pass
 
 Contributing
 ============
