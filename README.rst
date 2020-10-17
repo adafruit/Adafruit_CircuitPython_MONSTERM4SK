@@ -42,6 +42,7 @@ Usage Example
 =============
 
 .. code-block:: python
+
     import board
     import displayio
     from adafruit_display_shapes.circle import Circle
