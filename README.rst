@@ -48,10 +48,6 @@ Usage Example
     from adafruit_display_shapes.circle import Circle
     import adafruit_monsterm4sk
 
-
-    # Account for slight screen difference if you want
-    LEFT_Y_OFFSET = 0  # 12 # my left screen is a tad higher
-
     SCREEN_SIZE = 240
 
     i2c_bus = board.I2C()
