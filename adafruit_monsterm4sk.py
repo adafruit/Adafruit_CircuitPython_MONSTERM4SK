@@ -30,15 +30,15 @@ Implementation Notes
 """
 
 # imports
-import time
 import board
 import busio
-import pulseio
+import displayio
+import time
+import touchio
 import digitalio
 from adafruit_seesaw.seesaw import Seesaw
-import displayio
-import touchio
 from adafruit_st7789 import ST7789
+import pulseio
 import adafruit_lis3dh
 
 __version__ = "0.0.0-auto.0"
@@ -57,8 +57,7 @@ class MonsterM4sk:
     """Class representing a `MONSTER M4SK`
            <https://www.adafruit.com/product/4343>`_.
 
-            The terms "left" and "right" are always used from the
-            perspective of looking out of the mask.
+            The terms "left" and "right" are always used from the perspective of looking out of the mask.
             The right screen is the one USB port directly above it.
            """
 
@@ -100,9 +99,7 @@ class MonsterM4sk:
 
         self.left_display = ST7789(left_display_bus, width=240, height=240, rowstart=80)
 
-        self.right_backlight = pulseio.PWMOut(
-            board.RIGHT_TFT_LITE, frequency=5000, duty_cycle=0
-        )
+        self.right_backlight = pulseio.PWMOut(board.RIGHT_TFT_LITE, frequency=5000, duty_cycle=0)
         self.right_backlight.duty_cycle = 65535
 
         # right display
@@ -111,15 +108,10 @@ class MonsterM4sk:
         right_tft_dc = board.RIGHT_TFT_DC
 
         right_display_bus = displayio.FourWire(
-            right_spi,
-            command=right_tft_dc,
-            chip_select=right_tft_cs,
-            reset=board.RIGHT_TFT_RST,
+            right_spi, command=right_tft_dc, chip_select=right_tft_cs, reset=board.RIGHT_TFT_RST
         )
 
-        self.right_display = ST7789(
-            right_display_bus, width=240, height=240, rowstart=80
-        )
+        self.right_display = ST7789(right_display_bus, width=240, height=240, rowstart=80)
 
         if i2c is not None:
             int1 = digitalio.DigitalInOut(board.ACCELEROMETER_INTERRUPT)
@@ -146,6 +138,16 @@ class MonsterM4sk:
     def light(self):
         """Light sensor data."""
         return self._ss.analog_read(SS_LIGHTSENSOR_PIN)
+
+    @property
+    def buttons(self):
+        """Buttons dictionary."""
+
+        return {
+            "S9": self._ss.digital_read(SS_SWITCH1_PIN) is False,
+            "S10": self._ss.digital_read(SS_SWITCH2_PIN) is False,
+            "S11": self._ss.digital_read(SS_SWITCH3_PIN) is False
+        }
 
     @property
     def boop(self):
