@@ -38,7 +38,8 @@ setup(
         "Adafruit-Blinka",
         "adafruit-circuitpython-busdevice",
         "adafruit-circuitpython-register",
-        "adafruit-circuitpython-seesawadafruit-circuitpython-st7789",
+        "adafruit-circuitpython-seesaw",
+        "adafruit-circuitpython-st7789",
     ],
     # Choose your license
     license="MIT",
