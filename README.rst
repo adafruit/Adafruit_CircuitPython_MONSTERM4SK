@@ -27,6 +27,9 @@ This driver depends on:
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
 * `Bus Device <https://github.com/adafruit/Adafruit_CircuitPython_BusDevice>`_
 * `Register <https://github.com/adafruit/Adafruit_CircuitPython_Register>`_
+* `Seesaw <https://github.com/adafruit/Adafruit_CircuitPython_seesaw>`_
+* `LIS3DH <https://github.com/adafruit/Adafruit_CircuitPython_LIS3DH>`_
+* `ST7789 <https://github.com/adafruit/Adafruit_CircuitPython_ST7789>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading

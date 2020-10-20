@@ -10,11 +10,12 @@ set the stars to a different color. When the nose is booped
 make the eyes change through the rainbow.
 """
 
+import time
 import board
 import displayio
-import adafruit_monsterm4sk
 import adafruit_imageload
-import time
+import adafruit_monsterm4sk
+
 
 SCREEN_SIZE = 240
 IMAGE_SIZE = 64 * 3
@@ -36,21 +37,33 @@ right_group.x = (SCREEN_SIZE - IMAGE_SIZE) // 2
 right_group.y = (SCREEN_SIZE - IMAGE_SIZE) // 2
 
 #  load in party parrot bitmap
-parrot_bit, parrot_pal = adafruit_imageload.load("/rainbow_star.bmp",
-                                                 bitmap=displayio.Bitmap,
-                                                 palette=displayio.Palette)
+star_bitmap, star_palette = adafruit_imageload.load(
+    "/rainbow_star.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette
+)
 
-right_star_grid = displayio.TileGrid(parrot_bit, pixel_shader=parrot_pal,
-                                     width=1, height=1,
-                                     tile_height=64, tile_width=64,
-                                     default_tile=0,
-                                     x=0, y=0)
+right_star_grid = displayio.TileGrid(
+    star_bitmap,
+    pixel_shader=star_palette,
+    width=1,
+    height=1,
+    tile_height=64,
+    tile_width=64,
+    default_tile=0,
+    x=0,
+    y=0,
+)
 
-left_star_grid = displayio.TileGrid(parrot_bit, pixel_shader=parrot_pal,
-                                    width=1, height=1,
-                                    tile_height=64, tile_width=64,
-                                    default_tile=0,
-                                    x=0, y=0)
+left_star_grid = displayio.TileGrid(
+    star_bitmap,
+    pixel_shader=star_palette,
+    width=1,
+    height=1,
+    tile_height=64,
+    tile_width=64,
+    default_tile=0,
+    x=0,
+    y=0,
+)
 
 right_group.append(right_star_grid)
 left_group.append(left_star_grid)
