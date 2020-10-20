@@ -17,7 +17,6 @@ import adafruit_imageload
 import adafruit_monsterm4sk
 
 
-
 SCREEN_SIZE = 240
 IMAGE_SIZE = 64 * 3
 
