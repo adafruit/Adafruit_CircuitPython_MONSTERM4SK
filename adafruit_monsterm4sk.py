@@ -17,7 +17,6 @@ Implementation Notes
 
 * `MONSTER M4SK <https://www.adafruit.com/product/4343>`_
 
-
 **Software and Dependencies:**
 
 * Adafruit CircuitPython firmware for the supported boards:
@@ -53,8 +52,7 @@ SS_SWITCH3_PIN = 11
 
 
 class MonsterM4sk:
-    """Class representing a `MONSTER M4SK`
-           <https://www.adafruit.com/product/4343>`_.
+    """Represents a single Monster M4sk
 
             The terms "left" and "right" are always used from the
             perspective of looking out of the mask.
