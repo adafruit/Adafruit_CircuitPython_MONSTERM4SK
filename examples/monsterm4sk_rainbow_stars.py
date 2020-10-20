@@ -13,8 +13,9 @@ make the eyes change through the rainbow.
 import time
 import board
 import displayio
-import adafruit_monsterm4sk
 import adafruit_imageload
+import adafruit_monsterm4sk
+
 
 
 SCREEN_SIZE = 240
