@@ -15,7 +15,7 @@ Implementation Notes
 
 **Hardware:**
 
-* `MONSTER M4SK <https://www.adafruit.com/product/4343>`
+* `MONSTER M4SK <https://www.adafruit.com/product/4343>`_
 
 
 **Software and Dependencies:**
