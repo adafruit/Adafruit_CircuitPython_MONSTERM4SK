@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Foamyguy, written for Adafruit Industries
 # SPDX-FileCopyrightText: Copyright (c) 2020 Foamyguy for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
