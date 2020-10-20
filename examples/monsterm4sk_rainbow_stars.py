@@ -36,17 +36,17 @@ right_group.x = (SCREEN_SIZE - IMAGE_SIZE) // 2
 right_group.y = (SCREEN_SIZE - IMAGE_SIZE) // 2
 
 #  load in party parrot bitmap
-parrot_bit, parrot_pal = adafruit_imageload.load("/rainbow_star.bmp",
+star_bitmap, star_palette = adafruit_imageload.load("/rainbow_star.bmp",
                                                  bitmap=displayio.Bitmap,
                                                  palette=displayio.Palette)
 
-right_star_grid = displayio.TileGrid(parrot_bit, pixel_shader=parrot_pal,
+right_star_grid = displayio.TileGrid(star_bitmap, pixel_shader=star_palette,
                                      width=1, height=1,
                                      tile_height=64, tile_width=64,
                                      default_tile=0,
                                      x=0, y=0)
 
-left_star_grid = displayio.TileGrid(parrot_bit, pixel_shader=parrot_pal,
+left_star_grid = displayio.TileGrid(star_bitmap, pixel_shader=star_palette,
                                     width=1, height=1,
                                     tile_height=64, tile_width=64,
                                     default_tile=0,
