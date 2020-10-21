@@ -65,7 +65,8 @@ class MonsterM4sk:
     def __init__(self, i2c=None):
         """
             :param i2c: The I2C bus to use, will try board.I2C()
-            if not supplied
+                if not supplied
+
         """
         displayio.release_displays()
 
@@ -155,9 +156,10 @@ class MonsterM4sk:
         This example initializes the mask and prints the accelerometer data.
 
         .. code-block:: python
-                import adafruit_monsterm4sk
-                mask = adafruit_monsterm4sk.MonsterM4sk(i2c=board.I2C())
-                print(mask.acceleration)
+
+            import adafruit_monsterm4sk
+            mask = adafruit_monsterm4sk.MonsterM4sk(i2c=board.I2C())
+            print(mask.acceleration)
 
         """
         return (
@@ -173,6 +175,7 @@ class MonsterM4sk:
         This example initializes the mask and prints the light sensor data.
 
         .. code-block:: python
+
                 import adafruit_monsterm4sk
                 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=board.I2C())
                 print(mask.light)
@@ -188,6 +191,7 @@ class MonsterM4sk:
         is pressed down.
 
         .. code-block:: python
+
                 import adafruit_monsterm4sk
                 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=board.I2C())
 
@@ -211,6 +215,7 @@ class MonsterM4sk:
         is being touched.
 
         .. code-block:: python
+
                 import adafruit_monsterm4sk
                 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=board.I2C())
 
