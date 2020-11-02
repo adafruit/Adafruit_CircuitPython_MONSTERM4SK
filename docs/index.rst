@@ -31,7 +31,7 @@ Table of Contents
 .. toctree::
     :caption: Other Links
 
-    Download <https://github.com/adafruit/Adafruit_CircuitPython_MonsterM4sk/releases/latest>
+    Download <https://github.com/adafruit/Adafruit_CircuitPython_MONSTERM4SK/releases/latest>
     CircuitPython Reference Documentation <https://circuitpython.readthedocs.io>
     CircuitPython Support Forum <https://forums.adafruit.com/viewforum.php?f=60>
     Discord Chat <https://adafru.it/discord>
