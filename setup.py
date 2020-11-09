@@ -30,7 +30,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/x-rst",
     # The project's main homepage.
-    url="https://github.com/foamyguy/Adafruit_CircuitPython_MonsterM4sk",
+    url="https://github.com/adafruit/Adafruit_CircuitPython_MONSTERM4SK",
     # Author details
     author="Adafruit Industries",
     author_email="circuitpython@adafruit.com",
