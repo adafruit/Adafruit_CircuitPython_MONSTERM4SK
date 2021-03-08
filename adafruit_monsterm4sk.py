@@ -57,15 +57,15 @@ SS_SWITCH3_PIN = 11
 class MonsterM4sk:
     """Represents a single Monster M4sk
 
-            The terms "left" and "right" are always used from the
-            perspective of looking out of the mask.
-            The right screen is the one USB port directly above it.
-           """
+    The terms "left" and "right" are always used from the
+    perspective of looking out of the mask.
+    The right screen is the one USB port directly above it.
+    """
 
     def __init__(self, i2c=None):
         """
-            :param i2c: The I2C bus to use, will try board.I2C()
-                if not supplied
+        :param i2c: The I2C bus to use, will try board.I2C()
+            if not supplied
 
         """
         displayio.release_displays()
