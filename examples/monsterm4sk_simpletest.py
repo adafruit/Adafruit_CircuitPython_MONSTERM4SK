@@ -25,10 +25,10 @@ i2c_bus = board.I2C()
 
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
-left_group = displayio.Group(max_size=4)
+left_group = displayio.Group()
 mask.left_display.show(left_group)
 
-right_group = displayio.Group(max_size=4)
+right_group = displayio.Group()
 mask.right_display.show(right_group)
 
 right_circle = Circle(SCREEN_SIZE // 2, SCREEN_SIZE // 2, 40, fill=0x0000FF)

@@ -24,10 +24,10 @@ i2c_bus = board.I2C()
 
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
-left_group = displayio.Group(max_size=4, scale=3)
+left_group = displayio.Group(scale=3)
 mask.left_display.show(left_group)
 
-right_group = displayio.Group(max_size=4, scale=3)
+right_group = displayio.Group(scale=3)
 mask.right_display.show(right_group)
 
 left_group.x = (SCREEN_SIZE - IMAGE_SIZE) // 2
