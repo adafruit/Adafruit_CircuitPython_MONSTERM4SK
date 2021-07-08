@@ -53,11 +53,11 @@ i2c_bus = board.I2C()
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
 # left eye group setup
-left_group = displayio.Group(max_size=4)
+left_group = displayio.Group()
 mask.left_display.show(left_group)
 
 # right eye group setup
-right_group = displayio.Group(max_size=4)
+right_group = displayio.Group()
 mask.right_display.show(right_group)
 
 # Add orange backgrounds to both groups
