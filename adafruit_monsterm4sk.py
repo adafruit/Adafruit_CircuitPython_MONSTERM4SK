@@ -30,7 +30,7 @@ Implementation Notes
 # imports
 import time
 import board
-import pulseio
+import pwmio
 import busio
 import digitalio
 from adafruit_seesaw.seesaw import Seesaw
@@ -110,7 +110,7 @@ class MonsterM4sk:
         self.left_display = ST7789(left_display_bus, width=240, height=240, rowstart=80)
 
         # right backlight on board
-        self.right_backlight = pulseio.PWMOut(
+        self.right_backlight = pwmio.PWMOut(
             board.RIGHT_TFT_LITE, frequency=5000, duty_cycle=0
         )
         # full brightness
