@@ -24,7 +24,11 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 
 setup(
     name="adafruit-circuitpython-monsterm4sk",
-    use_scm_version=True,
+    use_scm_version={
+        # This is needed for the PyPI version munging in the Github Actions release.yml
+        "git_describe_command": "git describe --tags --long",
+        "local_scheme": "no-local-version",
+    },
     setup_requires=["setuptools_scm"],
     description="Helper library for the MONSTER M4SK device. Allows usage of"
     " screens and other built-in hardware.",
