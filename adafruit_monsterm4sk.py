@@ -39,7 +39,7 @@ import touchio
 from adafruit_st7789 import ST7789
 import adafruit_lis3dh
 
-__version__ = "0.0.0-auto.0"
+__version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MONSTERM4SK.git"
 
 # Seesaw pin numbers
