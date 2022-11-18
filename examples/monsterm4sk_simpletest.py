@@ -21,7 +21,8 @@ LEFT_Y_OFFSET = 0  # 12 # my left screen is a tad higher
 
 SCREEN_SIZE = 240
 
-i2c_bus = board.I2C()
+i2c_bus = board.I2C()  # uses board.SCL and board.SDA
+# i2c_bus = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
