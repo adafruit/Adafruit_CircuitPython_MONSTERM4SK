@@ -49,7 +49,8 @@ right_pumkin_eye_tilegrid = displayio.TileGrid(eye_image, pixel_shader=eye_palet
 left_pumkin_eye_tilegrid = displayio.TileGrid(eye_image, pixel_shader=eye_palette)
 
 # initialize the monster m4sk hardware
-i2c_bus = board.I2C()
+i2c_bus = board.I2C()  # uses board.SCL and board.SDA
+# i2c_bus = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
 # left eye group setup

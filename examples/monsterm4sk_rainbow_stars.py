@@ -20,7 +20,8 @@ import adafruit_monsterm4sk
 SCREEN_SIZE = 240
 IMAGE_SIZE = 64 * 3
 
-i2c_bus = board.I2C()
+i2c_bus = board.I2C()  # uses board.SCL and board.SDA
+# i2c_bus = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 
 mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
