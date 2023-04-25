@@ -67,7 +67,7 @@ class MonsterM4sk:
     The right screen is the one USB port directly above it.
     """
 
-    def __init__(self, i2c: I2CDeviceDriver=None):
+    def __init__(self, i2c: I2CDeviceDriver = None):
         """
         :param i2c: The I2C bus to use, will try board.I2C()
             if not supplied
