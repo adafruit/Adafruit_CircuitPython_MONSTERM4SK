@@ -39,6 +39,11 @@ import touchio
 from adafruit_st7789 import ST7789
 import adafruit_lis3dh
 
+try:
+    from circuitpython_typing.device_drivers import I2CDeviceDriver
+except ImportError:
+    pass
+
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MONSTERM4SK.git"
 
