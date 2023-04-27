@@ -40,8 +40,8 @@ from adafruit_st7789 import ST7789
 import adafruit_lis3dh
 
 try:
-    from circuitpython_typing.device_drivers import I2CDeviceDriver
-    from typing import Optional
+    from busio import I2C
+    from typing import Optional, Dict, Union
 except ImportError:
     pass
 
@@ -68,7 +68,7 @@ class MonsterM4sk:
     The right screen is the one USB port directly above it.
     """
 
-    def __init__(self, i2c: Optional[I2CDeviceDriver] = None):
+    def __init__(self, i2c: Optional[I2C] = None):
         """
         :param i2c: The I2C bus to use, will try board.I2C()
             if not supplied
@@ -156,7 +156,7 @@ class MonsterM4sk:
         self.nose.threshold = 180
 
     @property
-    def acceleration(self):
+    def acceleration(self) -> Union[float, None]:
         """Accelerometer data, +/- 2G sensitivity.
 
         This example initializes the mask and prints the accelerometer data.
@@ -175,7 +175,7 @@ class MonsterM4sk:
         )
 
     @property
-    def light(self):
+    def light(self) -> int:
         """Light sensor data.
 
         This example initializes the mask and prints the light sensor data.
@@ -190,7 +190,7 @@ class MonsterM4sk:
         return self._ss.analog_read(SS_LIGHTSENSOR_PIN)
 
     @property
-    def buttons(self):
+    def buttons(self) -> Dict[str, bool]:
         """Buttons dictionary.
 
         This example initializes the mask and prints when the S9 button
@@ -214,7 +214,7 @@ class MonsterM4sk:
         }
 
     @property
-    def boop(self):
+    def boop(self) -> bool:
         """Nose touch sense.
 
         This example initializes the mask and prints when the nose touch pad
