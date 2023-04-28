@@ -40,8 +40,8 @@ from adafruit_st7789 import ST7789
 import adafruit_lis3dh
 
 try:
-    from busio import I2C
     from typing import Optional, Dict, Union
+    from busio import I2C
 except ImportError:
     pass
 
