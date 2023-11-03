@@ -58,10 +58,10 @@ Usage Example
     mask = adafruit_monsterm4sk.MonsterM4sk(i2c=i2c_bus)
 
     left_group = displayio.Group()
-    mask.left_display.show(left_group)
+    mask.left_display.root_group = left_group
 
     right_group = displayio.Group()
-    mask.right_display.show(right_group)
+    mask.right_display.root_group = right_group
 
     right_circle = Circle(SCREEN_SIZE // 2, SCREEN_SIZE // 2, 40, fill=0x0000FF)
     right_group.append(right_circle)
