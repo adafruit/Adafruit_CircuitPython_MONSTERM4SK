@@ -35,6 +35,14 @@ import busio
 import digitalio
 from adafruit_seesaw.seesaw import Seesaw
 import displayio
+
+# Compatibility with both CircuitPython 8.x.x and 9.x.x.
+# Remove after 8.x.x is no longer a supported release.
+try:
+    from fourwire import FourWire
+except ImportError:
+    from displayio import FourWire
+
 import touchio
 from adafruit_st7789 import ST7789
 import adafruit_lis3dh
@@ -109,7 +117,7 @@ class MonsterM4sk:
         left_tft_cs = board.LEFT_TFT_CS
         left_tft_dc = board.LEFT_TFT_DC
 
-        left_display_bus = displayio.FourWire(
+        left_display_bus = FourWire(
             left_spi, command=left_tft_dc, chip_select=left_tft_cs  # Reset on Seesaw
         )
 
@@ -127,7 +135,7 @@ class MonsterM4sk:
         right_tft_cs = board.RIGHT_TFT_CS
         right_tft_dc = board.RIGHT_TFT_DC
 
-        right_display_bus = displayio.FourWire(
+        right_display_bus = FourWire(
             right_spi,
             command=right_tft_dc,
             chip_select=right_tft_cs,
