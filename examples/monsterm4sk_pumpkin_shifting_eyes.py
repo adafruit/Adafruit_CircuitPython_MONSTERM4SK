@@ -10,9 +10,11 @@ The eyes shift back and forth from left to right.
 """
 
 import time
+
+import adafruit_imageload
 import board
 import displayio
-import adafruit_imageload
+
 import adafruit_monsterm4sk
 
 SCREEN_SIZE = 240
