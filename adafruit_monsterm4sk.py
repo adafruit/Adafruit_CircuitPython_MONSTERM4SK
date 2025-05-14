@@ -29,18 +29,20 @@ Implementation Notes
 
 # imports
 import time
+
+import adafruit_lis3dh
 import board
-import pwmio
 import busio
 import digitalio
-from adafruit_seesaw.seesaw import Seesaw
 import displayio
+import pwmio
 import touchio
+from adafruit_seesaw.seesaw import Seesaw
 from adafruit_st7789 import ST7789
-import adafruit_lis3dh
 
 try:
-    from typing import Optional, Dict, Union
+    from typing import Dict, Optional, Union
+
     from busio import I2C
 except ImportError:
     pass
@@ -110,15 +112,15 @@ class MonsterM4sk:
         left_tft_dc = board.LEFT_TFT_DC
 
         left_display_bus = displayio.FourWire(
-            left_spi, command=left_tft_dc, chip_select=left_tft_cs  # Reset on Seesaw
+            left_spi,
+            command=left_tft_dc,
+            chip_select=left_tft_cs,  # Reset on Seesaw
         )
 
         self.left_display = ST7789(left_display_bus, width=240, height=240, rowstart=80)
 
         # right backlight on board
-        self.right_backlight = pwmio.PWMOut(
-            board.RIGHT_TFT_LITE, frequency=5000, duty_cycle=0
-        )
+        self.right_backlight = pwmio.PWMOut(board.RIGHT_TFT_LITE, frequency=5000, duty_cycle=0)
         # full brightness
         self.right_backlight.duty_cycle = 65535
 
@@ -134,17 +136,13 @@ class MonsterM4sk:
             reset=board.RIGHT_TFT_RST,  # reset on board
         )
 
-        self.right_display = ST7789(
-            right_display_bus, width=240, height=240, rowstart=80
-        )
+        self.right_display = ST7789(right_display_bus, width=240, height=240, rowstart=80)
 
         # setup accelerometer
         if i2c is not None:
             int1 = digitalio.DigitalInOut(board.ACCELEROMETER_INTERRUPT)
             try:
-                self._accelerometer = adafruit_lis3dh.LIS3DH_I2C(
-                    i2c, address=0x19, int1=int1
-                )
+                self._accelerometer = adafruit_lis3dh.LIS3DH_I2C(i2c, address=0x19, int1=int1)
             except ValueError:
                 self._accelerometer = adafruit_lis3dh.LIS3DH_I2C(i2c, int1=int1)
 
@@ -168,11 +166,7 @@ class MonsterM4sk:
             print(mask.acceleration)
 
         """
-        return (
-            self._accelerometer.acceleration
-            if self._accelerometer is not None
-            else None
-        )
+        return self._accelerometer.acceleration if self._accelerometer is not None else None
 
     @property
     def light(self) -> int:

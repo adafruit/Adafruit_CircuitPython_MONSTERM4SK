@@ -9,12 +9,14 @@ Draws a basic eye dot on each screen. Looks at nose
 when booped. Prints acceleration and light sensor
 data when booped as well.
 """
+
 import time
+
 import board
 import displayio
 from adafruit_display_shapes.circle import Circle
-import adafruit_monsterm4sk
 
+import adafruit_monsterm4sk
 
 # Account for slight screen difference if you want
 LEFT_Y_OFFSET = 0  # 12 # my left screen is a tad higher
